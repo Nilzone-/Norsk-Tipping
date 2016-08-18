@@ -39,13 +39,3 @@ function results(options) {
 
     return Promise.all(promises);
 }
-
-
-
-results({
-    type: 'vikinglotto'
-}).then(function (data) {
-    console.log(data);
-}).catch(function (err) {
-    console.log(err);
-});
