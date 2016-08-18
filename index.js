@@ -5,7 +5,8 @@ module.exports = results;
 
 function toJSON(response) {
     var data = response.toString(),
-        result = data.match(/(^{[\s\w\W]+}$)/gm).join('');
+        matches = (data.match(/(^{[\s\w\W]+}$)/gm) || []).join(''),
+        result = matches.length === 0 ? '[]' : matches;
 
     return JSON.parse(result);
 }
@@ -38,3 +39,13 @@ function results(options) {
 
     return Promise.all(promises);
 }
+
+
+
+results({
+    type: 'vikinglotto'
+}).then(function (data) {
+    console.log(data);
+}).catch(function (err) {
+    console.log(err);
+});
