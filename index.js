@@ -11,9 +11,9 @@ function toJSON(response) {
 }
 
 function results(options) {
-    if (!options ||  !options.type) throw new Error('Expected option object with key: type');
+    if (!options || !options.type) throw new Error('Expected option-object with key: type');
 
-    var endpoint = games[options.type],
+    var endpoint = games[options.type] || games['vikinglotto'],
         fromDrawID = options.fromDrawID || 0,
         toDrawID = options.toDrawID || 0,
         numberOfReqs = (toDrawID - fromDrawID) + 1;
