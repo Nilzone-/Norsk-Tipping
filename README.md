@@ -15,7 +15,7 @@ Supported gametypes:
 - eurojackpot
 
 
-# Installation
+## Installation
 
 ```
 npm install norsk-tipping
