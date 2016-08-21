@@ -15,8 +15,8 @@ function requestLatestdrawId(url) {
     return new Promise(function (resolve, reject) {
         request(url, function (error, response, body) {
             if (!error) {
-                var data = toJSON(body);
-                latestDrawID = data.drawID;
+                var data = toJSON(body),
+                    latestDrawID = data.drawID;
 
                 resolve(latestDrawID);
             } else {
@@ -28,10 +28,10 @@ function requestLatestdrawId(url) {
 
 
 function createPromises(numberOfReqs, fromDrawID, endpoint) {
-    if(typeof numberOfReqs !== 'number') {
+    if (typeof numberOfReqs !== 'number') {
         throw new TypeError('Expected variable of type: Number');
     }
-    
+
     var promises = Array(numberOfReqs)
         .fill(fromDrawID)
         .map(function (val, index) {
